@@ -63,8 +63,8 @@ server:
 spring:
    datasource:
       driver-class-name: org.hsqldb.jdbcDriver
-      jdbcUrl: jdbc:hsqldb:hsql://localhost:9013/templateDB
-      username: SA
+      jdbcUrl: jdbc:hsqldb:hsql://localhost:9013/roomyoudb
+      username: ADMIN
       password:
       initialSize: 10
       testOnBorrow: true
