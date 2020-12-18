@@ -1,5 +1,4 @@
-CandidateDao.java
-package com.ontimize.model.core.dao;
+package model.core.dao;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;

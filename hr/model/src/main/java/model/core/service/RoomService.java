@@ -1,4 +1,4 @@
-package com.ontimize.model.core.service;
+package model.core.service;
 
 import java.util.List;
 import java.util.Map;
@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.ontimize.db.EntityResult;
-import com.ontimize.api.core.service.IRoomService;
-import com.ontimize.model.core.dao.RoomDao;
+import api.core.service.IRoomService;
+import model.core.dao.RoomDao;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
