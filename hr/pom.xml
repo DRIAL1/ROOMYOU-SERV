@@ -18,7 +18,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<hsqldatabase.path>src/main/db</hsqldatabase.path>
-		<database.url>jdbc:hsqldb:hsql://localhost:9013/templateDB</database.url>
+		<database.url>jdbc:postgresql://localhost:5432/BBDD_trabajo</database.url>
 		<hsqldb.version>2.3.4</hsqldb.version>
 		<spring-boot.repackage.skip>true</spring-boot.repackage.skip>
 		<frontend-maven-plugin.version>1.10.0</frontend-maven-plugin.version>
@@ -30,6 +30,12 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-web</artifactId>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>9.4.1207</version>
 			</dependency>
 
 			<dependency>
@@ -61,13 +67,10 @@
 				<artifactId>hr-ws</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
+			
+			
 
-			<dependency>
-				<groupId>org.hsqldb</groupId>
-				<artifactId>hsqldb</artifactId>
-				<version>${hsqldb.version}</version>
-			</dependency>
-
+			
 		</dependencies>
 	</dependencyManagement>
 
