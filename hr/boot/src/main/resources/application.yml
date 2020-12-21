@@ -64,8 +64,8 @@ spring:
    datasource:
       driver-class-name: org.postgresql.Driver
       jdbcUrl: jdbc:postgresql://localhost:5432/BBDD_trabajo
-      username: ADMIN
-      password: adminuser
+      username: postgres
+      password: IM/user.D1
       initialSize: 10
       testOnBorrow: true
    main:
