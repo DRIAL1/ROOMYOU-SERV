@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <JdbcEntitySetup
- xmlns="http://www.ontimize.com/schema/jdbc"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
- catalog="" schema="${mainschema}" table="properties"
- datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
- <DeleteKeys>
-  <Column>property_id</Column>
- </DeleteKeys>
- <UpdateKeys>
-  <Column>property_id</Column>
- </UpdateKeys>
- <!-- <GeneratedKey>property_id</GeneratedKey> -->
+	xmlns="http://www.ontimize.com/schema/jdbc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+	catalog="" schema="${mainschema}" table="properties"
+	datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+	<DeleteKeys>
+		<Column>property_id</Column>
+	</DeleteKeys>
+	<UpdateKeys>
+		<Column>property_id</Column>
+	</UpdateKeys>
+
+	<Queries>
+		<Query id="details">
+			<Sentence>
+			 <![CDATA[
+				SELECT
+				#COLUMNS#
+				FROM vproperties p  
+				#WHERE# 
+			 ]]>
+			 </Sentence>
+		</Query>
+	</Queries>
 </JdbcEntitySetup>

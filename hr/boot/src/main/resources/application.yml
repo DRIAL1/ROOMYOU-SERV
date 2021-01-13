@@ -20,8 +20,8 @@ ontimize:
             - OPTIONS
             - DELETE
    jdbc:
-      nameConvention: upper
-      sqlhandler: hsqldb
+      nameConvention: lower
+      sqlhandler: postgres
       sqlConditionProcessor:
          uppperString: true
          upperLike: true
@@ -65,7 +65,7 @@ spring:
       driver-class-name: org.postgresql.Driver
       jdbcUrl: jdbc:postgresql://localhost:5432/BBDD_trabajo
       username: postgres
-      password: 6Melocoton6
+      password: IM/user.D1
       initialSize: 10
       testOnBorrow: true
    main:

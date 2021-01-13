@@ -14,7 +14,7 @@ public class PropertyDao extends OntimizeJdbcDaoSupport {
  public static final String ATTR_IDPROPERTY = "property_id";
  public static final String ATTR_ROOM = "room_id";
  public static final String ATTR_FLAT = "flat_id";
- public static final String ATTR_PROPERTY = "property";
+ public static final String ATTR_PROPERTY = "propertytype_id";
  public static final String ATTR_PROPERTY_SPEC = "property_txt";
  public static final String ATTR_PROPERTY_SPEC2 = "property_binary";
  public static final String ATTR_PROPERTY_SPEC3 = "property_number";

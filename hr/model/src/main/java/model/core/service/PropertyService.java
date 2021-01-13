@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.ontimize.db.EntityResult;
 import api.core.service.IPropertyService;
 import model.core.dao.PropertyDao;
+import model.core.dao.PropertyTypeDao;
+
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
@@ -18,12 +20,19 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 public class PropertyService implements IPropertyService{
 
  @Autowired private PropertyDao propertyDao;
+ @Autowired private PropertyTypeDao propertyTypeDao;
  @Autowired private DefaultOntimizeDaoHelper daoHelper;
  
  @Override
  public EntityResult propertyQuery(Map<String, Object> keyMap, List<String> attrList)
    throws OntimizeJEERuntimeException {
   return this.daoHelper.query(this.propertyDao, keyMap, attrList);
+ }
+ 
+ @Override
+ public EntityResult propertyDetailsQuery(Map<String, Object> keyMap, List<String> attrList)
+   throws OntimizeJEERuntimeException {
+  return this.daoHelper.query(this.propertyDao, keyMap, attrList, "details");
  }
 
  @Override
@@ -41,5 +50,27 @@ public class PropertyService implements IPropertyService{
  public EntityResult propertyDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
   return this.daoHelper.delete(this.propertyDao, keyMap);
  }
+
+@Override
+public EntityResult propertyTypeQuery(Map<String, Object> keyMap, List<String> attrList)
+		throws OntimizeJEERuntimeException {
+	  return this.daoHelper.query(this.propertyTypeDao, keyMap, attrList);
+}
+
+@Override
+public EntityResult propertyTypeInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
+	return this.daoHelper.insert(this.propertyTypeDao, attrMap);
+}
+
+@Override
+public EntityResult propertyTypeUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
+		throws OntimizeJEERuntimeException {
+	return this.daoHelper.update(this.propertyTypeDao, attrMap, keyMap);
+}
+
+@Override
+public EntityResult propertyTypeDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
+	return this.daoHelper.delete(this.propertyTypeDao, keyMap);
+}
 
 }
