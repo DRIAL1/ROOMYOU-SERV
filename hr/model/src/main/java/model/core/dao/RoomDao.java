@@ -15,6 +15,8 @@ public class RoomDao extends OntimizeJdbcDaoSupport {
  public static final String ATTR_FLAT_ID = "flat_id";
  public static final String ATTR_USER = "user_";
  public static final String ATTR_PRICE = "price";
+ public static final String ATTR_ADDRESS_CITY = "city";
+ public static final String QUERY_ROOM_DETAILS = "details";
  
 
 }
