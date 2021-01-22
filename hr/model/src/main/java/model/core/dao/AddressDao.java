@@ -15,7 +15,7 @@ public class AddressDao extends OntimizeJdbcDaoSupport {
  public static final String ATTR_STREET = "street_name";
  public static final String ATTR_NUMBER = "street_number";
  public static final String ATTR_FLOOR = "floor";
- public static final String ATTR_DOOR = "street_door";
+ public static final String ATTR_DOOR = "door";
  public static final String ATTR_GEOLOCATION = "geolocation";
  public static final String ATTR_PROVINCE = "province";
  public static final String ATTR_CITY = "city";

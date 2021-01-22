@@ -11,5 +11,5 @@
  <UpdateKeys>
   <Column>address_id</Column>
  </UpdateKeys>
- <!-- <GeneratedKey>ID</GeneratedKey> -->
+ <GeneratedKey>address_id</GeneratedKey>
 </JdbcEntitySetup>
