@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <JdbcEntitySetup
- xmlns="http://www.ontimize.com/schema/jdbc"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
- catalog="" schema="${mainschema}" table="flats"
- datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
- <DeleteKeys>
-  <Column>flat_id</Column>
- </DeleteKeys>
- <UpdateKeys>
-  <Column>flat_id</Column>
- </UpdateKeys>
- <!-- <GeneratedKey>flat_id</GeneratedKey> -->
+	xmlns="http://www.ontimize.com/schema/jdbc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+	catalog="" schema="${mainschema}" table="flats"
+	datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+	<DeleteKeys>
+		<Column>flat_id</Column>
+	</DeleteKeys>
+	<UpdateKeys>
+		<Column>flat_id</Column>
+	</UpdateKeys>
+	<GeneratedKey>flat_id</GeneratedKey>
+	<Queries>
+		<Query id="default">
+			<Sentence><![CDATA[
+				SELECT 
+				#COLUMNS# 
+				FROM vflats 
+				#WHERE#
+			]]></Sentence>
+		</Query>
+	</Queries>
 </JdbcEntitySetup>

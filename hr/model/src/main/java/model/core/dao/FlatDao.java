@@ -15,5 +15,6 @@ public class FlatDao extends OntimizeJdbcDaoSupport {
  public static final String ATTR_ADDRESS = "address_id";
  
  
+ 
 
 }

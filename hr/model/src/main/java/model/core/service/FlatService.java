@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.ontimize.db.EntityResult;
@@ -61,6 +62,8 @@ public EntityResult roomDetailsQuery(Map<String, Object> keyMap, List<String> at
 
 @Override
 public EntityResult roomInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
+	String user=SecurityContextHolder.getContext().getAuthentication().getName();
+	attrMap.put(RoomDao.ATTR_USER, user);
 	return this.daoHelper.insert(this.roomDao, attrMap);
 }
 
