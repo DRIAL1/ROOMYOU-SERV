@@ -118,7 +118,8 @@ public class FlatService implements IFlatService {
 	public EntityResult roomDetailsDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.roomDelete(keyMap);
 	}
-
+	
+	
 	@Override
 	public EntityResult addressQuery(Map<String, Object> keyMap, List<String> attrList)
 			throws OntimizeJEERuntimeException {
@@ -139,6 +140,12 @@ public class FlatService implements IFlatService {
 	@Override
 	public EntityResult addressDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.addressDao, keyMap);
+	}
+
+	@Override
+	public EntityResult roomDetailUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
+			throws OntimizeJEERuntimeException {
+		return this.roomUpdate(attrMap, keyMap);
 	}
 
 }
