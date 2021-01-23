@@ -1,5 +1,6 @@
 package model.core.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -143,9 +144,65 @@ public class FlatService implements IFlatService {
 	}
 
 	@Override
-	public EntityResult roomDetailUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
+	public EntityResult roomDetailsUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
 			throws OntimizeJEERuntimeException {
-		return this.roomUpdate(attrMap, keyMap);
+		/* El nombre de este método estaba mal, le faltaba la S de Details.
+		 * En este detalle, sólo se puede modificar la dirección del piso. Falta modificar el precio, imagen o similares.
+		 * De la misma manera que para la insercción necesitábamos agregarla información a dirección, aquí necesitamos hacer lo mismo
+		 * Pero necesitamos saber el adress_id para poder hacer eso. Para ello hacemos una consulta con el room_id para conocer el flat_id,
+		 * y con el flat_id para conocer el adress_id */
+		
+		// Obtenemos el flat_id
+		
+		List <String>flatIdAttr = new ArrayList<String>();
+		flatIdAttr.add(RoomDao.ATTR_FLAT_ID);
+		
+		EntityResult flatQuery = this.roomQuery(keyMap, flatIdAttr);
+		
+		if (flatQuery.getCode() == EntityResult.OPERATION_WRONG) {
+			throw new OntimizeJEERuntimeException("ERROR_RETRIEVING_FLAT_ID");
+		}
+		
+		int flat_id = (int) flatQuery.getRecordValues(0).get(FlatDao.ATTR_FLAT);
+		
+		// Con el flat_id, obtendremos el address_id
+		
+		List <String>addressIdAttr = new ArrayList<String>();
+		addressIdAttr.add(FlatDao.ATTR_ADDRESS);
+		
+		Map<String, Object> flatIdKey = new HashMap<String, Object>();
+		flatIdKey.put(FlatDao.ATTR_FLAT, flat_id);
+		
+		EntityResult adressQuery = this.flatQuery(flatIdKey, addressIdAttr);
+		
+		if (adressQuery.getCode() == EntityResult.OPERATION_WRONG) {
+			throw new OntimizeJEERuntimeException("ERROR_RETRIEVING_ADDRESS_ID");
+		}
+		
+		int address_id = (int) adressQuery.getRecordValues(0).get(AddressDao.ATTR_ADDRESS);
+		
+		// Actualizamos los valores de la dirección filtrando por el address_id correspondiente
+		
+		Map<String, Object> addressIdKey = new HashMap<String, Object>();
+		addressIdKey.put(AddressDao.ATTR_ADDRESS, address_id);
+		
+		EntityResult addressUpdate = this.addressUpdate(attrMap, addressIdKey);
+		
+		if (addressUpdate.getCode() == EntityResult.OPERATION_WRONG) {
+			throw new OntimizeJEERuntimeException("ERROR_UPDATING_ADDRESS");
+		}
+		
+		
+		// return this.roomUpdate(attrMap, keyMap); -> Se comenta esta línea para que no falle. Habría que eliminar todos los elementos
+		// de attrMap para filtrarlos por aquellos que únicamente pertenezcan a la habitación y no a la dirección para comprobar si queda
+		// algo pendiente de modificar.
+		// ↓ Por ese motivo se incluyen estas líneas abajo ↓
+		
+		EntityResult entityResult = new EntityResult();
+		entityResult.setCode(EntityResult.OPERATION_SUCCESSFUL);
+		return entityResult;
+		
+		/* OS FALTA COMPLETAR CON MÁS COSAS EL DETALLE Y LA ACTUALIZACIÓN DE DATOS*/
 	}
 
 }
