@@ -13,6 +13,7 @@
  </UpdateKeys>
  <Queries>
 		<Query id="details">
+		<OrderColumns><OrderColumn name="room_id" type="ASC"/></OrderColumns>
 			<Sentence>
 			 <![CDATA[
 				SELECT

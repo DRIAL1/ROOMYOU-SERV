@@ -13,12 +13,22 @@
 	</UpdateKeys>
 
 	<Queries>
-		<Query id="details">
+		<Query id="roomproperties">
 			<Sentence>
 			 <![CDATA[
 				SELECT
 				#COLUMNS#
-				FROM vproperties p  
+				FROM vroomproperties p  
+				#WHERE# 
+			 ]]>
+			 </Sentence>
+		</Query>
+		<Query id="flatproperties">
+			<Sentence>
+			 <![CDATA[
+				SELECT
+				#COLUMNS#
+				FROM vflatproperties p 
 				#WHERE# 
 			 ]]>
 			 </Sentence>

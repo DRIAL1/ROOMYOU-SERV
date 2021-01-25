@@ -10,7 +10,8 @@ public interface IPropertyService {
 
  // PROPERTY
  public EntityResult propertyQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
- public EntityResult propertyDetailsQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+ public EntityResult propertyRoomQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+ public EntityResult propertyFlatQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
  public EntityResult propertyInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
  public EntityResult propertyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
  public EntityResult propertyDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;

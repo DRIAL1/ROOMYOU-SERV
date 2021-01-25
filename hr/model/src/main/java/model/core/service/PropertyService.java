@@ -30,9 +30,15 @@ public class PropertyService implements IPropertyService{
  }
  
  @Override
- public EntityResult propertyDetailsQuery(Map<String, Object> keyMap, List<String> attrList)
+ public EntityResult propertyRoomQuery(Map<String, Object> keyMap, List<String> attrList)
    throws OntimizeJEERuntimeException {
-  return this.daoHelper.query(this.propertyDao, keyMap, attrList, "details");
+  return this.daoHelper.query(this.propertyDao, keyMap, attrList, PropertyDao.QUERY_ROOM_PROPERTIES);
+ }
+ 
+ @Override
+ public EntityResult propertyFlatQuery(Map<String, Object> keyMap, List<String> attrList)
+   throws OntimizeJEERuntimeException {
+  return this.daoHelper.query(this.propertyDao, keyMap, attrList, PropertyDao.QUERY_FLAT_PROPERTIES);
  }
 
  @Override

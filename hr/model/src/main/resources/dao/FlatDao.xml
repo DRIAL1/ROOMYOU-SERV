@@ -17,7 +17,7 @@
 			<Sentence><![CDATA[
 				SELECT 
 				#COLUMNS# 
-				FROM vflats 
+				FROM vflat f
 				#WHERE#
 			]]></Sentence>
 		</Query>
